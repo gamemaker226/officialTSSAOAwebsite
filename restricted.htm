@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restricted Access</title>
+  <style>
+    body {
+      background-color: black;
+      color: #ff0000;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .scan {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #ff4444;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🚫 RESTRICTED ACCESS 🚫</h1>
+  <p>You do not have clearance to view this content.</p>
+  <p>All login attempts are being <strong>monitored</strong>.</p>
+  <p class="scan">[TRACE INITIATED... PLEASE STAND BY]</p>
+</body>
+</html>
