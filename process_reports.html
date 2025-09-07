@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Process Reports</title>
+  <style>
+    body { background: black; color: #00ff00; font-family: monospace; text-align:center; padding: 2rem; }
+    textarea { width: 80%; height: 300px; background: black; border: 2px solid #00ff00; color: #00ff00; padding: 1rem; }
+    button { margin-top:1rem; padding:0.5rem 1rem; border:2px solid #00ff00; background:black; color:#00ff00; cursor:pointer; }
+    a { color: #00ff00; text-decoration: underline; display:block; margin-top:1rem; }
+  </style>
+</head>
+<body>
+  <h1>📝 Process Reports 📝</h1>
+  <textarea id="report-box" placeholder="Write your report here..."></textarea><br>
+  <button onclick="saveReport()">Save Report</button>
+  <a href="counsel_dashboard.html">← Back to Dashboard</a>
+
+  <script>
+    function saveReport() {
+      localStorage.setItem("report", document.getElementById("report-box").value);
+      alert("Report saved ✅");
+    }
+
+    window.onload = function() {
+      let saved = localStorage.getItem("report");
+      if (saved) document.getElementById("report-box").value = saved;
+    }
+  </script>
+</body>
+</html>
