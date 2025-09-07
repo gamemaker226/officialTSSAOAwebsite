@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lower Class Login</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    .terminal-box {
+      border: 2px solid #00ff00;
+      padding: 2rem;
+      width: 300px;
+      text-align: left;
+    }
+    label, input {
+      display: block;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+    input {
+      background: black;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      padding: 0.5rem;
+      width: 100%;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      width: 100%;
+      border: 2px solid #00ff00;
+      background: black;
+      color: #00ff00;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00ff00;
+      color: black;
+    }
+    .error {
+      margin-top: 1rem;
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lower Class Login</h1>
+  <div class="terminal-box">
+    <label for="username">Username:</label>
+    <input type="text" id="username">
+    <label for="password">Password:</label>
+    <input type="password" id="password">
+    <button onclick="checkLogin()">Login</button>
+    <p class="error" id="error-msg">ACCESS DENIED ❌</p>
+  </div>
+
+  <script>
+    function checkLogin() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "lowerclass" && pass === "lowerclass") {
+        window.location.href = "restricted.html";
+      } else {
+        document.getElementById("error-msg").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
