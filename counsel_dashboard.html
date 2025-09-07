@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>99 Counsel Dashboard</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem;
+      border: 2px solid #00ff00;
+      background: black;
+      color: #00ff00;
+      width: 300px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .btn:hover {
+      background: #00ff00;
+      color: black;
+    }
+    #report-box {
+      width: 80%;
+      height: 200px;
+      background: black;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      margin: 1rem auto;
+      padding: 1rem;
+      display: none;
+    }
+    #save-btn {
+      display: none;
+      margin: 1rem auto;
+      padding: 0.5rem;
+      border: 2px solid #00ff00;
+      background: black;
+      color: #00ff00;
+      cursor: pointer;
+    }
+    #secret-game {
+      display: none;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    iframe {
+      border: 2px solid #00ff00;
+      width: 80%;
+      height: 400px;
+    }
+    #key {
+      width: 10px;
+      height: 10px;
+      background: white;
+      position: absolute;
+      top: 80%;
+      left: 70%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>☢️ 99 Counsel Control Dashboard ☢️</h1>
+
+  <!-- Buttons -->
+  <button class="btn" onclick="alert('Nuclear Reactor Status: STABLE ✅')">Nuclear Reactor Status</button>
+  <button class="btn" onclick="alert('Files of MH PJA JA: CLASSIFIED 🔒')">Files of Owner MH PJA JA</button>
+  <button class="btn" onclick="toggleReports()">Process Reports</button>
+  <button class="btn" onclick="checkGame()">Secret Games (LOCKED)</button>
+  <button class="btn" onclick="downloadFunny()">Download Funny Video</button>
+
+  <!-- Editable Reports -->
+  <textarea id="report-box" placeholder="Write your report here..."></textarea>
+  <button id="save-btn" onclick="saveReport()">Save Report</button>
+
+  <!-- Secret Game Room -->
+  <div id="secret-game">
+    <h2>🎲 Gamble Room 🎲</h2>
+    <iframe src="https://example.com" title="Secret Game"></iframe>
+  </div>
+
+  <!-- Hidden Key -->
+  <div id="key" onclick="unlockGame()" title="You found the key!"></div>
+
+  <script>
+    function toggleReports() {
+      let box = document.getElementById("report-box");
+      let btn = document.getElementById("save-btn");
+      if (box.style.display === "none") {
+        box.style.display = "block";
+        btn.style.display = "block";
+      } else {
+        box.style.display = "none";
+        btn.style.display = "none";
+      }
+    }
+
+    function saveReport() {
+      let content = document.getElementById("report-box").value;
+      localStorage.setItem("report", content);
+      alert("Report saved ✅");
+    }
+
+    // Load saved report if any
+    window.onload = function() {
+      let saved = localStorage.getItem("report");
+      if (saved) {
+        document.getElementById("report-box").value = saved;
+      }
+    }
+
+    function unlockGame() {
+      document.getElementById("secret-game").style.display = "block";
+      alert("Secret Gamble Room Unlocked! 🎲");
+    }
+
+    function checkGame() {
+      if (document.getElementById("secret-game").style.display === "none") {
+        alert("Locked ❌ — Find the hidden key!");
+      }
+    }
+
+    function downloadFunny() {
+      // Replace funny.mp4 with your actual funny video file
+      let link = document.createElement("a");
+      link.href = "funny.mp4";
+      link.download = "funny.mp4";
+      link.click();
+    }
+  </script>
+</body>
+</html>
